@@ -1,0 +1,67 @@
+{
+  "members": [
+    {
+      "name": "Squatter's Pub Brewery",
+      "tagline": "Utah's Original Craft Brewery",
+      "phone": "(801) 363-2739",
+      "website": "https://www.squatters.com",
+      "websiteText": "www.squatters.com",
+      "image": "squatters.webp",
+      "membership": 3
+    },
+    {
+      "name": "The Leonardo Museum",
+      "tagline": "Where Art, Science & Technology Converge",
+      "phone": "(801) 531-9800",
+      "website": "https://theleonardo.org",
+      "websiteText": "theleonardo.org",
+      "image": "leonardo.webp",
+      "membership": 3
+    },
+    {
+      "name": "Ken Sanders Rare Books",
+      "tagline": "Salt Lake City's Premier Antiquarian Bookshop",
+      "phone": "(801) 521-3819",
+      "website": "https://kensandersbooks.com",
+      "websiteText": "www.kensandersbooks.com",
+      "image": "kensanders.webp",
+      "membership": 2
+    },
+    {
+      "name": "City Creek Center",
+      "tagline": "Shopping, Dining, and Community",
+      "phone": "(801) 521-2012",
+      "website": "https://shopcitycreekcenter.com",
+      "websiteText": "shopcitycreekcenter.com",
+      "image": "creekcenter.webp",
+      "membership": 3
+    },
+    {
+      "name": "The Grand America Hotel",
+      "tagline": "Luxury Hospitality in Downtown Salt Lake",
+      "phone": "(801) 258-6000",
+      "website": "https://www.grandamerica.com",
+      "websiteText": "www.grandamerica.com",
+      "image": "grandamerica.webp",
+      "membership": 3
+    },
+    {
+      "name": "Salt Lake City Public Library",
+      "tagline": "Inspiring Learning and Community Connection",
+      "phone": "(801) 524-8200",
+      "website": "https://www.slcpl.org",
+      "websiteText": "www.slcpl.org",
+      "image": "slclibrary.webp",
+      "membership": 1
+    },
+    {
+      "name": "Red Butte Garden",
+      "tagline": "Botanical Garden and Outdoor Events",
+      "phone": "(801) 585-0556",
+      "website": "https://redbuttegarden.org",
+      "websiteText": "redbuttegarden.org",
+      "image": "redbutte.webp",
+      "membership": 2
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Salt Lake City Chamber of Commerce business directory featuring local companies across the Wasatch Front.">
+  <meta name="author" content="Willian Pechel">
+
+  <meta property="og:title" content="Salt Lake City Chamber Directory">
+  <meta property="og:description" content="Explore local businesses in the Salt Lake City Chamber of Commerce directory.">
+  <meta property="og:image" content="https://wpechel-hub.github.io/wdd231/chamber/images/chamber_commerce.png">
+  <meta property="og:url" content="https://wpechel-hub.github.io/wdd231/chamber/directory.html">
+
+  <title>Directory | Salt Lake City Chamber of Commerce</title>
+
+  <link rel="icon" href="/chamber/images/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/chamber/styles/normalize.css">
+  <link rel="stylesheet" href="/chamber/styles/small.css">
+  <link rel="stylesheet" href="/chamber/styles/larger.css">
+
+  <script src="./scripts/main.js" defer></script>
+  <script src="./scripts/directory.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <a href="index.html" class="logo" aria-label="Salt Lake City Chamber of Commerce home">
+      <div class="logo-img-wrap">
+        <img src="/images/chamber_commerce.png" alt="Salt Lake City Chamber of Commerce logo" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <span class="logo-title">Salt Lake City</span>
+        <span class="logo-sub">Chamber of Commerce</span>
+      </div>
+    </a>
+
+    <nav id="primary-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="directory.html" class="active">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html">Discover</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button id="dark-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+
+      <button id="menu-btn" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="content-wrap">
+
+    <h1 class="page-title">Business Directory</h1>
+
+    <div class="view-buttons">
+      <button id="grid-view" type="button">Grid View</button>
+      <button id="list-view" type="button">List View</button>
+    </div>
+
+    <section id="members-container" class="grid" aria-label="Business directory members"></section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+
+    <address class="footer-address">
+      <img src="/images/chamber_commerce.png" alt="Salt Lake City Chamber of Commerce seal" class="footer-logo">
+      <div class="footer-address-text">
+        <p class="footer-org">Salt Lake City Chamber of Commerce</p>
+        <p>3580 S Stallion St, Salt Lake City, UT 84121</p>
+        <p><a href="mailto:info@slcchamber.com">info@slcchamber.com</a></p>
+        <p>(801) 555-2300</p>
+      </div>
+    </address>
+
+     <nav class="footer-social" aria-label="Social media links">
+        <a href="#" aria-label="YouTube" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zm-14 9.4V8.4l6.3 3.6-6.3 3.6z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter / X" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.2 2h3.3l-7.2 8.2 8.5 11.2h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.4 2h6.8l4.7 6.2L18.2 2zm-1.2 17.4h1.8L7.2 3.8H5.3l11.7 15.6z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19v.14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+          </svg>
+        </a>
+      </nav>
+
+    <div class="footer-meta">
+      <p>WDD231 Class Project</p>
+      <p>Willian Pechel</p>
+      <p>&copy; <span id="copy-year"></span> Salt Lake City Chamber of Commerce</p>
+      <p class="last-mod">Last Modified: <span id="last-mod"></span></p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
