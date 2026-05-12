@@ -50,7 +50,7 @@
   #primary-nav ul   { flex-direction: column; gap: .15rem; }
   #primary-nav a    { display: block; padding: .7rem 1rem; border-radius: 6px; }
   #primary-nav a.active, #primary-nav a:hover { background: var(--white-low); }
-  #primary-nav a.active { background: var(--gold); }
+  #primary-nav a.active { background: var(--gold); color: var(--navy-dark); }
 
   .logo-title { font-size: .9rem; }
   .hero { min-height: 260px; }
