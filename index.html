@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WDD231 – Front-end Web Development I. Willian Pechel's course home page at BYU-Idaho, featuring course list, credits, and portfolio links.">
+  <title>WDD231 | Willian Pechel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-name">
+        <span class="site-name-primary">WDD231</span>
+        <span class="site-name-sub">Front-end Web Development I</span>
+      </a>
+      <button id="menu-btn" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+          <li><a href="chamber/index.html">Chamber</a></li>
+          <li><a href="chamber/siteplan.html">Site Plan</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- Intro / Profile -->
+    <section class="intro" aria-label="Student introduction">
+      <div class="intro-inner">
+        <div class="profile-card">
+          <div class="avatar" aria-hidden="true">WP</div>
+          <div class="profile-info">
+            <h1>Willian Pechel</h1>
+            <p class="profile-location">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+              </svg>
+              Salt Lake City, Utah
+            </p>
+            <p class="profile-email">
+              <a href="mailto:wpechel@gmail.com">wpechel@gmail.com</a>
+            </p>
+            <p class="profile-desc">BYU-Idaho student pursuing the Web &amp; Computer Programming certificate. Passionate about building clean, accessible web experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course List -->
+    <section class="courses-section" aria-labelledby="courses-heading">
+      <div class="courses-inner">
+
+        <h2 id="courses-heading">Program Courses</h2>
+
+        <!-- Filter buttons (req #9) -->
+        <div class="filter-bar" role="group" aria-label="Filter courses by subject">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="WDD">WDD</button>
+          <button class="filter-btn" data-filter="CSE">CSE</button>
+        </div>
+
+        <!-- Course cards rendered by JS (req #8) -->
+        <div class="course-grid" id="course-grid" aria-live="polite" aria-label="Course list"></div>
+
+        <!-- Total credits via reduce (req #10) -->
+        <p class="credits-total">
+          Total Credits: <strong id="total-credits">0</strong>
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; <span id="copy-year"></span> Willian Pechel &mdash; WDD231 BYU-Idaho</p>
+      <p class="last-mod">Last Modified: <span id="last-mod"></span></p>
+    </div>
+  </footer>
+
+  <script src="scripts/home.js"></script>
+</body>
+</html>
