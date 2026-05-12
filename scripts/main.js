@@ -1,10 +1,8 @@
 'use strict';
 
-// ── Footer: dynamic year + last modified ──────────────────────────────────
 document.getElementById('copy-year').textContent = new Date().getFullYear();
 document.getElementById('last-mod').textContent  = document.lastModified;
 
-// ── Mobile nav toggle ─────────────────────────────────────────────────────
 const menuBtn = document.getElementById('menu-btn');
 const nav     = document.getElementById('primary-nav');
 
@@ -15,7 +13,6 @@ menuBtn.addEventListener('click', () => {
   menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
 });
 
-// Close nav when a link is clicked
 nav.querySelectorAll('a').forEach(link =>
   link.addEventListener('click', () => {
     nav.classList.remove('open');
@@ -24,7 +21,6 @@ nav.querySelectorAll('a').forEach(link =>
   })
 );
 
-// ── Dark mode toggle ──────────────────────────────────────────────────────
 const darkBtn = document.getElementById('dark-toggle');
 
 function setTheme(dark) {
@@ -32,7 +28,6 @@ function setTheme(dark) {
   localStorage.setItem('slc-theme', dark ? 'dark' : 'light');
 }
 
-// Initialise from saved preference, then system preference
 const saved = localStorage.getItem('slc-theme');
 if (saved) {
   setTheme(saved === 'dark');
@@ -42,7 +37,6 @@ if (saved) {
 
 darkBtn.addEventListener('click', () => setTheme(!document.body.classList.contains('dark')));
 
-// ── Member data ───────────────────────────────────────────────────────────
 const members = [
   {
     name:       'Red Iguana',
@@ -117,10 +111,8 @@ function renderSpotlights() {
   const container = document.getElementById('spotlights');
   if (!container) return;
 
-  // Only Gold and Silver members are eligible for spotlight
   const eligible = members.filter(m => m.membership === 'Gold' || m.membership === 'Silver');
 
-  // Fisher-Yates shuffle, then take 3
   for (let i = eligible.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [eligible[i], eligible[j]] = [eligible[j], eligible[i]];
@@ -131,12 +123,9 @@ function renderSpotlights() {
 
 renderSpotlights();
 
-// ── Weather – Open-Meteo (free, no API key needed) ───────────────────────
-// Docs: open-meteo.com
 const SLC_LAT = 40.7608;
 const SLC_LON = -111.8910;
 
-// WMO weather code → description
 const WMO_DESC = {
   0: 'Clear Sky',       1: 'Mainly Clear',    2: 'Partly Cloudy',
   3: 'Overcast',        45: 'Foggy',           48: 'Icy Fog',
@@ -148,7 +137,6 @@ const WMO_DESC = {
   95: 'Thunderstorm',   96: 'Thunderstorm',    99: 'Thunderstorm',
 };
 
-// Parse "2026-05-11T06:27" → "6:27 AM" (Mountain Time already from API)
 function parseLocalTime(isoStr) {
   const [, time] = isoStr.split('T');
   let [h, m] = time.split(':').map(Number);
@@ -165,7 +153,7 @@ async function loadWeather() {
       '&current=temperature_2m,relative_humidity_2m,weather_code',
       '&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset',
       '&temperature_unit=fahrenheit',
-      '&timezone=America%2FDenver',   // Mountain Time
+      '&timezone=America%2FDenver',
       '&forecast_days=3',
     ].join('');
 
@@ -173,7 +161,6 @@ async function loadWeather() {
     const cur   = data.current;
     const daily = data.daily;
 
-    // ── Current conditions ──
     document.getElementById('weather-temp').textContent = `${Math.round(cur.temperature_2m)}°F`;
     document.getElementById('weather-desc').textContent = WMO_DESC[cur.weather_code] ?? 'Unknown';
     document.getElementById('w-high').textContent       = `${Math.round(daily.temperature_2m_max[0])}°`;
@@ -182,7 +169,6 @@ async function loadWeather() {
     document.getElementById('w-sunrise').textContent    = parseLocalTime(daily.sunrise[0]);
     document.getElementById('w-sunset').textContent     = parseLocalTime(daily.sunset[0]);
 
-    // ── 3-day forecast ──
     const dayIds  = ['fc-day1',  'fc-day2',  'fc-day3'];
     const tempIds = ['fc-temp1', 'fc-temp2', 'fc-temp3'];
 

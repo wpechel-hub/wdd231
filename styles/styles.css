@@ -4,7 +4,6 @@ img { display: block; max-width: 100%; }
 ul  { list-style: none; }
 a   { text-decoration: none; }
 
-/* ── Design tokens ── */
 :root {
   --navy:       #1B3A6B;
   --navy-dark:  #0f2347;
@@ -23,7 +22,6 @@ a   { text-decoration: none; }
   --radius-lg:  12px;
 }
 
-/* Dark mode */
 body.dark {
   --bg:         #0f172a;
   --surface:    #1e293b;
@@ -34,7 +32,6 @@ body.dark {
   --shadow-md:  0 4px 12px rgba(0,0,0,.4);
 }
 
-/* ── Base ── */
 html { scroll-behavior: smooth; }
 
 body {
@@ -51,7 +48,6 @@ h1, h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-/* ── Utility ── */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -60,10 +56,6 @@ h1, h2, h3, h4, h5 {
   white-space: nowrap;
 }
 
-
-/* ================================================================
-   HEADER
-   ================================================================ */
 header {
   position: sticky;
   top: 0;
@@ -81,7 +73,6 @@ header {
   padding: .75rem 1.5rem;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -90,7 +81,6 @@ header {
   flex-shrink: 0;
 }
 
-/* Logo image wrapper */
 .logo-img-wrap {
   width: 54px;
   height: 54px;
@@ -130,7 +120,6 @@ header {
   line-height: 1;
 }
 
-/* Navigation */
 #primary-nav {
   margin-left: auto;
 }
@@ -160,7 +149,6 @@ header {
   color: #fff;
 }
 
-/* Header action buttons */
 .header-actions {
   display: flex;
   align-items: center;
@@ -180,7 +168,6 @@ header {
 
 .icon-btn:hover { background: rgba(255,255,255,.22); }
 
-/* Hamburger lines */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -197,15 +184,10 @@ header {
   transition: transform .25s, opacity .25s;
 }
 
-/* open state */
 .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-
-/* ================================================================
-   HERO
-   ================================================================ */
 .hero {
   position: relative;
   min-height: 420px;
@@ -215,10 +197,8 @@ header {
   overflow: hidden;
 }
 
-/* empty hero-bg div kept in HTML for possible future use */
 .hero-bg { display: none; }
 
-/* Gold accent line at bottom of hero */
 .hero::after {
   content: '';
   position: absolute;
@@ -252,11 +232,6 @@ header {
   border-color: var(--gold);
 }
 
-
-
-/* ================================================================
-   MAIN / LAYOUT
-   ================================================================ */
 #main-content {
   padding: 2rem 0 3.5rem;
 }
@@ -274,10 +249,6 @@ header {
   margin-bottom: 1.25rem;
 }
 
-
-/* ================================================================
-   CARD BASE
-   ================================================================ */
 .card {
   background: var(--surface);
   border-radius: var(--radius-lg);
@@ -302,10 +273,6 @@ header {
 
 body.dark .card-title { background: #0d1117; }
 
-
-/* ================================================================
-   INFO GRID  (Events | Weather | Forecast)
-   ================================================================ */
 .info-grid {
   display: grid;
   grid-template-columns: 2.4fr 1.8fr 1.3fr;
@@ -313,7 +280,6 @@ body.dark .card-title { background: #0d1117; }
   margin-bottom: 1.5rem;
 }
 
-/* ── Events ── */
 .events-list {
   padding: .6rem 0;
 }
@@ -362,7 +328,6 @@ body.dark .card-title { background: #0d1117; }
   color: var(--text-muted);
 }
 
-/* ── Weather ── */
 .weather-body {
   padding: 1rem 1.1rem 1.1rem;
 }
@@ -414,7 +379,6 @@ body.dark .weather-temp { color: #93c5fd; }
 .weather-row dt { color: var(--text-muted); }
 .weather-row dd { font-weight: 600; color: var(--text); }
 
-/* ── Forecast ── */
 .forecast-list {
   padding: .5rem 0;
 }
@@ -443,10 +407,6 @@ body.dark .weather-temp { color: #93c5fd; }
 
 body.dark .forecast-temp { color: #93c5fd; }
 
-
-/* ================================================================
-   BUSINESS SPOTLIGHTS
-   ================================================================ */
 .spotlights {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -551,10 +511,6 @@ body.dark .forecast-temp { color: #93c5fd; }
 .badge-gold   { background: rgba(200,149,42,.15); color: var(--gold-dark); border: 1px solid rgba(200,149,42,.4); }
 .badge-silver { background: rgba(120,130,145,.12); color: #5a6070; border: 1px solid rgba(120,130,145,.3); }
 
-
-/* ================================================================
-   FOOTER
-   ================================================================ */
 footer {
   background: var(--navy-dark);
   color: rgba(255,255,255,.8);
@@ -603,7 +559,6 @@ footer {
 .footer-address-text a { color: var(--gold); }
 .footer-address-text a:hover { text-decoration: underline; }
 
-/* Social icons */
 .footer-social {
   display: flex;
   gap: .85rem;
@@ -631,7 +586,6 @@ footer {
   transform: translateY(-2px);
 }
 
-/* Footer meta */
 .footer-meta {
   text-align: right;
   font-size: .78rem;
@@ -641,16 +595,11 @@ footer {
 .footer-meta p { color: rgba(255,255,255,.65); }
 .last-mod { font-style: italic; font-size: .72rem; }
 
-
-/* ================================================================
-   RESPONSIVE – Tablet  ≤ 960px
-   ================================================================ */
 @media (max-width: 960px) {
   .info-grid {
     grid-template-columns: 1fr 1fr;
   }
 
-  /* Forecast spans full width on tablet */
   .info-grid > :nth-child(3) {
     grid-column: 1 / -1;
   }
@@ -677,12 +626,7 @@ footer {
   .footer-meta  { grid-column: 1 / -1; text-align: left; }
 }
 
-
-/* ================================================================
-   RESPONSIVE – Mobile  ≤ 640px
-   ================================================================ */
 @media (max-width: 640px) {
-  /* Header */
   .hamburger { display: flex; }
   .header-actions { margin-left: auto; }
 
@@ -705,34 +649,27 @@ footer {
 
   .logo-title { font-size: .9rem; }
 
-  /* Hero */
   .hero { min-height: 200px; }
   .hero-ticket { bottom: 1rem; right: 1rem; }
 
-  /* Layout */
   .content-wrap { padding-inline: 1rem; }
   .page-title   { font-size: 1.4rem; }
 
-  /* Info grid stacks */
   .info-grid { grid-template-columns: 1fr; }
   .info-grid > :nth-child(3) { grid-column: auto; }
   .info-grid > :nth-child(3) .forecast-list  { display: flex; flex-direction: column; }
   .info-grid > :nth-child(3) .forecast-item  { flex-direction: row; border-bottom: 1px solid var(--border); border-right: none; }
   .info-grid > :nth-child(3) .forecast-item:last-child { border-bottom: none; }
 
-  /* Spotlights stack */
   .spotlights { grid-template-columns: 1fr; }
 
-  /* Footer stacks */
   .footer-inner   { grid-template-columns: 1fr; gap: 1.5rem; }
   .footer-meta    { grid-column: auto; text-align: center; }
   .footer-social  { justify-content: center; }
 
-  /* Stack logo above address text on mobile */
   .footer-address       { flex-direction: column; align-items: center; text-align: center; }
   .footer-address-text  { text-align: center; }
   .footer-logo          { margin-bottom: .25rem; }
 
-  /* Hero height on mobile */
   .hero { min-height: 260px; }
 }
