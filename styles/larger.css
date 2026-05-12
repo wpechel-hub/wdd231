@@ -1,0 +1,64 @@
+@media (min-width: 961px) {
+  .info-grid { grid-template-columns: 2.4fr 1.8fr 1.3fr; }
+  .spotlights { grid-template-columns: repeat(3, 1fr); }
+  .footer-inner { grid-template-columns: 1fr auto 1fr; gap: 2.5rem; }
+  .footer-meta { text-align: right; }
+}
+
+@media (min-width: 641px) and (max-width: 960px) {
+  .info-grid { grid-template-columns: 1fr 1fr; }
+
+  .info-grid > :nth-child(3) { grid-column: 1 / -1; }
+
+  .info-grid > :nth-child(3) .forecast-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .info-grid > :nth-child(3) .forecast-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+    padding: .9rem .5rem;
+  }
+
+  .info-grid > :nth-child(3) .forecast-item:last-child { border-right: none; }
+
+  .spotlights { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-meta  { grid-column: 1 / -1; text-align: left; }
+}
+
+@media (max-width: 640px) {
+  .hamburger { display: flex; }
+  .header-actions { margin-left: auto; }
+
+  #primary-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--navy-dark);
+    padding: .75rem 1.5rem 1.25rem;
+    box-shadow: var(--shadow-md);
+    border-top: 2px solid var(--gold);
+  }
+
+  #primary-nav.open { display: block; }
+  #primary-nav ul   { flex-direction: column; gap: .15rem; }
+  #primary-nav a    { display: block; padding: .7rem 1rem; border-radius: 6px; }
+  #primary-nav a.active, #primary-nav a:hover { background: var(--white-low); }
+  #primary-nav a.active { background: var(--gold); }
+
+  .logo-title { font-size: .9rem; }
+  .hero { min-height: 260px; }
+  .hero-ticket { bottom: 1rem; right: 1rem; }
+  .content-wrap { padding-inline: 1rem; }
+  .page-title { font-size: 1.4rem; }
+
+  .footer-address { flex-direction: column; align-items: center; text-align: center; }
+  .footer-address-text { text-align: center; }
+  .footer-logo { margin-bottom: .25rem; }
+}
