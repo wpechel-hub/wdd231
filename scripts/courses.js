@@ -1,25 +1,5 @@
 'use strict';
 
-document.getElementById('copy-year').textContent = new Date().getFullYear();
-document.getElementById('last-mod').textContent  = document.lastModified;
-
-const menuBtn = document.getElementById('menu-btn');
-const nav     = document.getElementById('primary-nav');
-
-menuBtn.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuBtn.classList.toggle('open', open);
-  menuBtn.setAttribute('aria-expanded', open);
-});
-
-nav.querySelectorAll('a').forEach(link =>
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuBtn.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  })
-);
-
 const courses = [
   {
     subject:     'CSE',
@@ -82,6 +62,12 @@ function displayTotalCredits(list) {
   document.getElementById('total-credits').textContent = total;
 }
 
+function updateCompletedCount() {
+  const count = courses.filter(c => c.completed).length;
+  const el = document.getElementById('completed-count');
+  if (el) el.textContent = count;
+}
+
 function buildCard(course) {
   const card = document.createElement('div');
   card.classList.add('course-card');
@@ -109,11 +95,9 @@ function renderCourses(list) {
   displayTotalCredits(list);
 }
 
-const filterBtns = document.querySelectorAll('.filter-btn');
-
-filterBtns.forEach(btn => {
+document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
     const filter = btn.dataset.filter;
@@ -126,3 +110,4 @@ filterBtns.forEach(btn => {
 });
 
 renderCourses(courses);
+updateCompletedCount();
