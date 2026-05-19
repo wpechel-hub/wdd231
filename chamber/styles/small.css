@@ -130,6 +130,17 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
 .last-mod { font-style: italic; font-size: .72rem; }
 
 /* =========================================================
+   WORLD CLOCKS
+========================================================= */
+
+.clocks { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+.clock-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: .85rem 1.25rem; flex: 1; text-align: center; box-shadow: var(--shadow); }
+.clock-city { display: block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.clock-time { display: block; font-family: 'Roboto Slab', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); margin: .2rem 0; }
+body.dark .clock-time { color: var(--accent); }
+.clock-zone { display: block; font-size: .7rem; color: var(--muted); }
+
+/* =========================================================
    DIRECTORY PAGE - CARD STYLE
 ========================================================= */
 

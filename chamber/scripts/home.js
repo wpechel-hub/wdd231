@@ -103,5 +103,28 @@ function displaySpotlights(members) {
   }).join('');
 }
 
+function startClocks() {
+  const slcEl = document.getElementById('clock-slc');
+  const saoEl = document.getElementById('clock-sao');
+
+  const fmtSLC = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Denver',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+  });
+  const fmtSAO = new Intl.DateTimeFormat('pt-BR', {
+    timeZone: 'America/Sao_Paulo',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+  });
+
+  function tick() {
+    const now = new Date();
+    if (slcEl) slcEl.textContent = fmtSLC.format(now);
+    if (saoEl) saoEl.textContent = fmtSAO.format(now);
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
 getWeather();
 getSpotlights();
+startClocks();
