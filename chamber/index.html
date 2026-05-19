@@ -5,14 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Salt Lake City Chamber of Commerce – connecting local businesses and fostering community growth across the Wasatch Front.">
   <meta name="author" content="Willian Pechel">
+
+  <meta property="og:title" content="Salt Lake City Chamber of Commerce">
+  <meta property="og:description" content="Connecting local businesses and fostering community growth across the Wasatch Front.">
+  <meta property="og:image" content="https://wpechel-hub.github.io/wdd231/chamber/images/saltpalace.webp">
+  <meta property="og:url" content="https://wpechel-hub.github.io/wdd231/chamber/index.html">
+
   <title>Salt Lake City Chamber of Commerce</title>
+
+  <link rel="icon" href="images/favicon.ico">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
-   <link rel="stylesheet" href="styles/styles.css">
+
   <script src="scripts/main.js" defer></script>
+  <script src="scripts/home.js" defer></script>
 </head>
 <body>
 
@@ -31,19 +41,15 @@
 
       <nav id="primary-nav" aria-label="Primary navigation">
         <ul>
-          <li><a href="/chamber/index.html" class="active">Home</a></li>
-          <li><a href="/chamber/directory.html">Directory</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
           <li><a href="join.html">Join</a></li>
           <li><a href="discover.html">Discover</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <button id="dark-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
-            <path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 2v14a7 7 0 010-14z"/>
-          </svg>
-        </button>
+        <button id="dark-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
         <button id="menu-btn" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
           <span></span><span></span><span></span>
         </button>
@@ -52,44 +58,43 @@
     </div>
   </header>
 
-  <section class="hero" aria-label="Welcome to Salt Lake City">
-    <div class="hero-bg"></div>
-    <a href="join.html" class="hero-ticket">Keynote Tickets</a>
+  <section class="hero" aria-label="Welcome to Salt Lake City Chamber of Commerce">
+    <a href="join.html" class="hero-ticket">Join the Chamber →</a>
   </section>
 
   <main id="main-content">
     <div class="content-wrap">
 
-      <h1 class="page-title">Home</h1>
+      <h1 class="page-title">Connecting Salt Lake City Business</h1>
 
       <div class="info-grid">
 
         <section class="card" aria-labelledby="events-heading">
-          <h2 class="card-title" id="events-heading">Events</h2>
-          <ul class="events-list" id="events-list">
+          <h2 class="card-title" id="events-heading">Upcoming Events</h2>
+          <ul class="events-list">
             <li class="event-item">
-              <time datetime="2026-06-14" class="event-date">Jun 14</time>
+              <time datetime="2026-06-14" class="event-date">Jun<br>14</time>
               <div class="event-info">
                 <strong>Annual Business Expo</strong>
                 <span>Salt Palace Convention Center</span>
               </div>
             </li>
             <li class="event-item">
-              <time datetime="2026-06-21" class="event-date">Jun 21</time>
+              <time datetime="2026-06-21" class="event-date">Jun<br>21</time>
               <div class="event-info">
                 <strong>Small Business Workshop</strong>
                 <span>SLC Public Library – Main Branch</span>
               </div>
             </li>
             <li class="event-item">
-              <time datetime="2026-07-08" class="event-date">Jul 8</time>
+              <time datetime="2026-07-08" class="event-date">Jul<br>8</time>
               <div class="event-info">
                 <strong>Networking Mixer</strong>
                 <span>The Grand America Hotel</span>
               </div>
             </li>
             <li class="event-item">
-              <time datetime="2026-07-22" class="event-date">Jul 22</time>
+              <time datetime="2026-07-22" class="event-date">Jul<br>22</time>
               <div class="event-info">
                 <strong>Economic Development Summit</strong>
                 <span>Salt Lake City Hall</span>
@@ -100,9 +105,9 @@
 
         <section class="card" aria-labelledby="weather-heading">
           <h2 class="card-title" id="weather-heading">Current Weather</h2>
-          <div class="weather-body" id="weather-current">
+          <div class="weather-body">
             <div class="weather-top">
-              <div class="weather-icon-wrap" id="weather-icon-wrap">
+              <div id="weather-icon-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="weather-svg" aria-hidden="true">
                   <circle cx="32" cy="22" r="10" fill="#C8952A"/>
                   <g stroke="#C8952A" stroke-width="2.5" stroke-linecap="round">
@@ -118,42 +123,42 @@
                   <path d="M18 46c0-4.4 3.6-8 8-8 .5 0 1 .05 1.5.14A9 9 0 0145 44c0 .7-.08 1.4-.22 2H18.22A8 8 0 0118 46z" fill="#b0c4de"/>
                 </svg>
               </div>
-              <div class="weather-temp-block">
-                <p class="weather-temp" id="weather-temp">75°F</p>
-                <p class="weather-desc" id="weather-desc">Partly Cloudy</p>
+              <div>
+                <p class="weather-temp" id="weather-temp">—°F</p>
+                <p class="weather-desc" id="weather-desc">Loading…</p>
               </div>
             </div>
-            <dl class="weather-dl">
-              <div class="weather-row"><dt>High</dt><dd id="w-high">85°</dd></div>
-              <div class="weather-row"><dt>Low</dt><dd id="w-low">52°</dd></div>
-              <div class="weather-row"><dt>Humidity</dt><dd id="w-humidity">34%</dd></div>
-              <div class="weather-row"><dt>Sunrise</dt><dd id="w-sunrise">7:30 am</dd></div>
-              <div class="weather-row"><dt>Sunset</dt><dd id="w-sunset">9:59 pm</dd></div>
+            <dl>
+              <div class="weather-row"><dt>High</dt><dd id="w-high">—</dd></div>
+              <div class="weather-row"><dt>Low</dt><dd id="w-low">—</dd></div>
+              <div class="weather-row"><dt>Humidity</dt><dd id="w-humidity">—</dd></div>
+              <div class="weather-row"><dt>Sunrise</dt><dd id="w-sunrise">—</dd></div>
+              <div class="weather-row"><dt>Sunset</dt><dd id="w-sunset">—</dd></div>
             </dl>
           </div>
         </section>
 
         <section class="card" aria-labelledby="forecast-heading">
-          <h2 class="card-title" id="forecast-heading">Weather Forecast</h2>
-          <ul class="forecast-list" id="forecast-list">
+          <h2 class="card-title" id="forecast-heading">3-Day Forecast</h2>
+          <ul class="forecast-list">
             <li class="forecast-item">
-              <span class="forecast-day" id="fc-day1">Today</span>
-              <span class="forecast-temp" id="fc-temp1">90°F</span>
+              <span class="forecast-day" id="fc-day1">—</span>
+              <span class="forecast-temp" id="fc-temp1">—</span>
             </li>
             <li class="forecast-item">
-              <span class="forecast-day" id="fc-day2">Wednesday</span>
-              <span class="forecast-temp" id="fc-temp2">89°F</span>
+              <span class="forecast-day" id="fc-day2">—</span>
+              <span class="forecast-temp" id="fc-temp2">—</span>
             </li>
             <li class="forecast-item">
-              <span class="forecast-day" id="fc-day3">Thursday</span>
-              <span class="forecast-temp" id="fc-temp3">68°F</span>
+              <span class="forecast-day" id="fc-day3">—</span>
+              <span class="forecast-temp" id="fc-temp3">—</span>
             </li>
           </ul>
         </section>
 
       </div>
 
-      <div class="spotlights" id="spotlights" role="region" aria-label="Member spotlights"></div>
+      <section id="spotlights" class="spotlights" aria-label="Member spotlights"></section>
 
     </div>
   </main>
@@ -166,7 +171,7 @@
         <div class="footer-address-text">
           <p class="footer-org">Salt Lake City Chamber of Commerce</p>
           <p>3580 S Stallion St, Salt Lake City, UT 84121</p>
-          <p><a href="mailto:info@slcchamber.example">info@slcchamber.com</a></p>
+          <p><a href="mailto:info@slcchamber.com">info@slcchamber.com</a></p>
           <p>(801) 555-2300</p>
         </div>
       </address>

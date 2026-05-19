@@ -12,9 +12,14 @@ if (menuButton && primaryNav) {
   });
 }
 
+if (localStorage.getItem("dark") === "true") {
+  document.body.classList.add("dark");
+}
+
 if (darkToggle) {
   darkToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark");
+    localStorage.setItem("dark", document.body.classList.contains("dark"));
   });
 }
 
