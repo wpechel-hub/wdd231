@@ -54,7 +54,7 @@ header { position: sticky; top: 0; z-index: 100; background: var(--navy); color:
 #primary-nav a.active { background: var(--gold); color: var(--navy-dk); }
 
 .header-actions { display: flex; align-items: center; gap: .5rem; }
-.icon-btn { background: var(--whi-lo); border: 1px solid var(--whi-md); color: var(--white); padding: .45rem .55rem; border-radius: var(--r); cursor: pointer; }
+.icon-btn { background: transparent; border: 1px solid var(--whi-md); color: var(--white); padding: .45rem .55rem; border-radius: var(--r); cursor: pointer; }
 .icon-btn:hover { background: var(--whi-md); }
 
 .hamburger { display: none; flex-direction: column; gap: 4px; padding: .5rem .55rem; }
@@ -161,6 +161,9 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
 }
 
 .member-card-top {
@@ -183,6 +186,7 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
 }
 
 .member-card-body {
+  flex: 1;
   display: grid;
   grid-template-columns: 90px 1fr;
   gap: 1.2rem;
@@ -201,13 +205,15 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
 }
 
 .member-info {
-  display: grid;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   gap: .65rem;
 }
 
 .member-info p {
   display: grid;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 70px minmax(0, 1fr);
   gap: .5rem;
   font-size: .95rem;
   color: var(--muted);
@@ -220,13 +226,18 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
   font-weight: 700;
 }
 
-.member-info a {
+.member-info a,
+.member-info span {
   color: var(--muted);
   font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .member-level {
-  margin-top: .8rem;
+  margin-top: auto;
+  width: 100%;
   padding: .45rem .9rem;
   border-radius: 999px;
   background: var(--border);
@@ -237,7 +248,7 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
 }
 
 .member-level.gold {
-  background: rgba(200,149,42,.12);
+  background: var(--gold-bg);
   border: 1px solid var(--gold);
   color: var(--gold);
 }
@@ -314,37 +325,3 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
   }
 }
 
-.member-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 360px;
-}
-
-.member-card-body {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  align-items: start;
-}
-
-.member-info {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.member-info p {
-  grid-template-columns: 70px minmax(0, 1fr);
-}
-
-.member-info a,
-.member-info span {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.member-level {
-  margin-top: auto;
-  width: 100%;
-}
