@@ -1,64 +1,68 @@
-// OpenWeatherMap API — sign up free at openweathermap.org to get your key
-const API_KEY = 'YOUR_OPENWEATHER_API_KEY';
 const LAT = 40.7608;
 const LON = -111.8910;
 
 async function getWeather() {
   try {
-    const [currentRes, forecastRes] = await Promise.all([
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=imperial&appid=${API_KEY}`),
-      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${LAT}&lon=${LON}&units=imperial&cnt=24&appid=${API_KEY}`)
-    ]);
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}` +
+      `&current=temperature_2m,relative_humidity_2m,weather_code` +
+      `&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset` +
+      `&timezone=America%2FDenver&temperature_unit=fahrenheit&forecast_days=4`;
 
-    if (!currentRes.ok || !forecastRes.ok) throw new Error('Weather API error');
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Weather API error');
+    const data = await res.json();
 
-    const [current, forecast] = await Promise.all([currentRes.json(), forecastRes.json()]);
-
-    displayWeather(current);
-    displayForecast(forecast);
+    displayWeather(data);
+    displayForecast(data);
   } catch (err) {
     console.error('Weather fetch failed:', err);
     document.getElementById('weather-desc').textContent = 'Weather unavailable';
   }
 }
 
+function wmoDescription(code) {
+  if (code === 0) return 'Clear sky';
+  if (code === 1) return 'Mainly clear';
+  if (code === 2) return 'Partly cloudy';
+  if (code === 3) return 'Overcast';
+  if (code <= 48) return 'Foggy';
+  if (code <= 55) return 'Drizzle';
+  if (code <= 65) return 'Rain';
+  if (code <= 77) return 'Snow';
+  if (code <= 82) return 'Rain showers';
+  if (code <= 86) return 'Snow showers';
+  return 'Thunderstorm';
+}
+
+function formatTime12h(isoStr) {
+  const [h, m] = isoStr.split('T')[1].split(':').map(Number);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const h12 = h % 12 || 12;
+  return `${h12}:${m.toString().padStart(2, '0')} ${ampm}`;
+}
+
 function displayWeather(data) {
-  document.getElementById('weather-temp').textContent = `${Math.round(data.main.temp)}°F`;
-  document.getElementById('weather-desc').textContent = data.weather[0].description;
-  document.getElementById('w-high').textContent = `${Math.round(data.main.temp_max)}°`;
-  document.getElementById('w-low').textContent = `${Math.round(data.main.temp_min)}°`;
-  document.getElementById('w-humidity').textContent = `${data.main.humidity}%`;
+  const c = data.current;
+  const d = data.daily;
 
-  const fmt = { hour: 'numeric', minute: '2-digit' };
-  document.getElementById('w-sunrise').textContent = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], fmt);
-  document.getElementById('w-sunset').textContent = new Date(data.sys.sunset * 1000).toLocaleTimeString([], fmt);
-
-  const icon = data.weather[0].icon;
-  const desc = data.weather[0].description;
-  document.getElementById('weather-icon-wrap').innerHTML =
-    `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${desc}" width="64" height="64">`;
+  document.getElementById('weather-temp').textContent = `${Math.round(c.temperature_2m)}°F`;
+  document.getElementById('weather-desc').textContent = wmoDescription(c.weather_code);
+  document.getElementById('w-high').textContent = `${Math.round(d.temperature_2m_max[0])}°`;
+  document.getElementById('w-low').textContent = `${Math.round(d.temperature_2m_min[0])}°`;
+  document.getElementById('w-humidity').textContent = `${c.relative_humidity_2m}%`;
+  document.getElementById('w-sunrise').textContent = formatTime12h(d.sunrise[0]);
+  document.getElementById('w-sunset').textContent = formatTime12h(d.sunset[0]);
 }
 
 function displayForecast(data) {
-  const days = [];
-  const seen = new Set();
-  const todayStr = new Date().toDateString();
-
-  for (const item of data.list) {
-    const date = new Date(item.dt * 1000);
-    const key = date.toDateString();
-    if (!seen.has(key) && days.length < 3) {
-      seen.add(key);
-      days.push({ date, temp: item.main.temp });
-    }
-  }
-
+  const d = data.daily;
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  days.forEach((d, i) => {
-    const label = d.date.toDateString() === todayStr ? 'Today' : dayNames[d.date.getDay()];
-    document.getElementById(`fc-day${i + 1}`).textContent = label;
-    document.getElementById(`fc-temp${i + 1}`).textContent = `${Math.round(d.temp)}°F`;
-  });
+
+  for (let i = 1; i <= 3; i++) {
+    const date = new Date(d.time[i] + 'T12:00:00');
+    document.getElementById(`fc-day${i}`).textContent = dayNames[date.getDay()];
+    document.getElementById(`fc-temp${i}`).textContent = `${Math.round(d.temperature_2m_max[i])}°F`;
+  }
 }
 
 async function getSpotlights() {
@@ -105,21 +109,15 @@ function displaySpotlights(members) {
 
 function startClocks() {
   const slcEl = document.getElementById('clock-slc');
-  const saoEl = document.getElementById('clock-sao');
+  if (!slcEl) return;
 
-  const fmtSLC = new Intl.DateTimeFormat('en-US', {
+  const fmt = new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Denver',
     hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
   });
-  const fmtSAO = new Intl.DateTimeFormat('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
-    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-  });
 
   function tick() {
-    const now = new Date();
-    if (slcEl) slcEl.textContent = fmtSLC.format(now);
-    if (saoEl) saoEl.textContent = fmtSAO.format(now);
+    slcEl.textContent = fmt.format(new Date());
   }
   tick();
   setInterval(tick, 1000);
