@@ -64,7 +64,7 @@ header { position: sticky; top: 0; z-index: 100; background: var(--navy); color:
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-.hero { position: relative; min-height: 400px; background: var(--hero-bg), url('../images/background_hero.png') center/cover no-repeat; }
+.hero { position: relative; min-height: 400px; background: var(--hero-bg), url('../images/background_hero.jpg') center/cover no-repeat; }
 .hero-ticket { position: absolute; bottom: 1.5rem; right: 1.75rem; background: var(--glass); color: var(--white); font-size: .875rem; font-weight: 600; padding: .55rem 1.25rem; border-radius: var(--r); border: 1px solid var(--whi-md); }
 .hero-ticket:hover { background: var(--gold); color: var(--navy-dk); }
 
