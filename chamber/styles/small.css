@@ -130,15 +130,25 @@ footer { background: var(--navy-dk); color: var(--whi-hi); padding: 2.5rem 1.5re
 .last-mod { font-style: italic; font-size: .72rem; }
 
 /* =========================================================
-   WORLD CLOCKS
+   HERO CLOCK (glass)
 ========================================================= */
 
-.clocks { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-.clock-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: .85rem 2rem; text-align: center; box-shadow: var(--shadow); min-width: 220px; }
-.clock-city { display: block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-.clock-time { display: block; font-family: 'Roboto Slab', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); margin: .2rem 0; }
-body.dark .clock-time { color: var(--accent); }
-.clock-zone { display: block; font-size: .7rem; color: var(--muted); }
+.hero-clock {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--r);
+  padding: .65rem 1.1rem;
+  text-align: center;
+  z-index: 2;
+}
+.hero-clock .clock-city { display: block; font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.75); }
+.hero-clock .clock-time { display: block; font-family: 'Roboto Slab', serif; font-size: 1.45rem; font-weight: 700; color: #fff; margin: .15rem 0; }
+.hero-clock .clock-zone { display: block; font-size: .62rem; color: rgba(255,255,255,.6); }
 
 /* =========================================================
    DIRECTORY PAGE - CARD STYLE
