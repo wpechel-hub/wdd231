@@ -44,6 +44,7 @@ header { position: sticky; top: 0; z-index: 100; background: var(--navy); color:
 .logo { display: flex; align-items: center; gap: .75rem; color: var(--white); }
 .logo-img-wrap { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); }
 .logo-img { width: 100%; height: 100%; object-fit: cover; }
+.logo-text { display: flex; flex-direction: column; gap: .2rem; }
 .logo-title { font-size: 1rem; font-weight: 700; }
 .logo-sub { font-size: .7rem; color: var(--whi-hi); text-transform: uppercase; letter-spacing: .08em; }
 
