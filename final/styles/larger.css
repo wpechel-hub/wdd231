@@ -1,0 +1,70 @@
+/* ── MEDIUM (641–960px) ── */
+@media (min-width: 641px) and (max-width: 960px) {
+  .search-row-1       { gap: .75rem; }
+  .search-row-2       { grid-template-columns: repeat(3, 1fr); }
+  .flights-grid       { grid-template-columns: 1fr; }
+  .deals-grid         { grid-template-columns: 1fr; }
+  .dest-grid          { grid-template-columns: repeat(2, 1fr); }
+  .features-grid      { grid-template-columns: repeat(2, 1fr); }
+  .tips-grid          { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner       { grid-template-columns: 1fr 1fr; }
+  .footer-meta        { grid-column: 1 / -1; }
+  .filters-row        { grid-template-columns: repeat(4, 1fr); }
+  .join-form          { grid-template-columns: 1fr 1fr; }
+  .form-field--full,
+  .form-submit-row    { grid-column: 1 / -1; }
+}
+
+/* ── LARGE (961px+) ── */
+@media (min-width: 961px) {
+  .search-row-2       { grid-template-columns: repeat(3, 1fr); }
+  .btn-search         { width: auto; }
+  .flights-grid       { grid-template-columns: 1fr; max-width: 780px; }
+  .deals-grid         { grid-template-columns: 1fr; max-width: 780px; }
+  .dest-grid          { grid-template-columns: repeat(3, 1fr); }
+  .features-grid      { grid-template-columns: repeat(4, 1fr); }
+  .tips-grid          { grid-template-columns: repeat(3, 1fr); }
+  .footer-inner       { grid-template-columns: auto 1fr auto; }
+  .footer-meta        { text-align: right; }
+  .footer-links       { flex-direction: row; gap: 1.25rem; align-items: center; }
+  .filters-row        { grid-template-columns: repeat(4, 1fr); }
+  .join-form          { grid-template-columns: 1fr 1fr; }
+  .form-field--full,
+  .form-submit-row    { grid-column: 1 / -1; }
+  .btn-submit         { width: auto; }
+
+  /* Wider flight card route section on large screens */
+  .fc-city-name { max-width: 130px; }
+}
+
+/* ── MOBILE (≤640px) ── */
+@media (max-width: 640px) {
+  .hamburger      { display: flex; }
+  .header-actions { margin-left: auto; }
+
+  #primary-nav {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--surface);
+    padding: .75rem 1.25rem 1.25rem;
+    border-top: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-bottom: 2px solid var(--copper);
+  }
+  #primary-nav.open  { display: block; }
+  #primary-nav ul    { flex-direction: column; gap: .15rem; }
+  #primary-nav a     { display: block; padding: .75rem 1rem; }
+
+  .search-row-1 {
+    grid-template-columns: 1fr;
+  }
+  .swap-btn { display: none; }
+  .search-row-2 { grid-template-columns: 1fr 1fr; }
+
+  .fc-time { font-size: 1.1rem; }
+  .fc-city-name { max-width: 70px; }
+
+  .content-wrap   { padding-inline: 1rem; }
+  .footer-links   { flex-direction: row; flex-wrap: wrap; gap: .75rem; }
+}

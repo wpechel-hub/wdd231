@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all FlyGo flight deals. Filter by destination, price, and stops to find the cheapest fares from Salt Lake City.">
+  <meta name="author" content="Willian Pechel">
+
+  <meta property="og:title" content="Flight Deals | FlyGo Budget Travel">
+  <meta property="og:description" content="Filter and sort all available flight deals from Salt Lake City to find your perfect budget trip.">
+  <meta property="og:image" content="https://wpechel-hub.github.io/wdd231/final/images/og-cover.webp">
+  <meta property="og:url" content="https://wpechel-hub.github.io/wdd231/final/deals.html">
+
+  <title>Flight Deals | FlyGo Budget Travel</title>
+
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/deals.js" type="module"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="FlyGo home">
+        <img src="images/logo.svg" alt="FlyGo – Find Your Destination Now" class="logo-img" width="160" height="44">
+      </a>
+
+      <nav id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="deals.html" class="active">Deals</a></li>
+          <li><a href="tips.html">Travel Tips</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="dark-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+        <button id="menu-btn" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-banner" role="banner">
+    <div class="page-banner-inner">
+      <h1>All Flight Deals</h1>
+      <p>18 routes from Salt Lake City — filter, sort, and find your next adventure.</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <div class="content-wrap">
+
+      <div class="filters-bar" role="region" aria-label="Filter and sort options">
+        <div class="filters-row">
+          <div class="filter-field">
+            <label for="filter-category">Category</label>
+            <select id="filter-category">
+              <option value="all">All flights</option>
+              <option value="domestic">Domestic</option>
+              <option value="international">International</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-stops">Stops</label>
+            <select id="filter-stops">
+              <option value="any">Any</option>
+              <option value="0">Nonstop</option>
+              <option value="1">1 stop</option>
+              <option value="2">2+ stops</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="sort-by">Sort by</label>
+            <select id="sort-by">
+              <option value="default">Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="duration">Shortest flight</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-price">
+              Max price: <span class="price-val" id="price-val">Any</span>
+            </label>
+            <input type="range" id="filter-price" min="50" max="900" step="50" value="900">
+          </div>
+        </div>
+        <div class="filters-actions">
+          <button class="btn-reset" id="reset-filters" type="button">Reset Filters</button>
+        </div>
+      </div>
+
+      <div class="deals-header">
+        <h2 class="section-heading">Results</h2>
+        <span class="deals-count" id="deals-count" aria-live="polite"></span>
+      </div>
+
+      <div class="deals-grid" id="deals-grid" aria-live="polite" aria-label="Flight deals"></div>
+
+    </div>
+  </main>
+
+  <!-- Flight Detail Modal -->
+  <dialog id="flight-modal" class="flight-modal" aria-label="Flight details">
+    <div class="modal-close-bar">
+      <button id="modal-close" class="modal-x" aria-label="Close dialog">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </dialog>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-mark" aria-hidden="true">F</div>
+        <div class="footer-brand-text">
+          <p class="footer-name">FlyGo</p>
+          <p class="footer-tag">Budget Travel Search</p>
+        </div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="deals.html">Deals</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+        <a href="attributions.html">Attributions</a>
+      </nav>
+
+      <div class="footer-meta">
+        <p>WDD231 Final Project</p>
+        <p>Willian Pechel</p>
+        <p>&copy; <span id="copy-year"></span> FlyGo Budget Travel</p>
+        <p class="last-mod">Last Modified: <span id="last-mod"></span></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

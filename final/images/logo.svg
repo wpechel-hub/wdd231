@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" role="img" aria-label="FlyGo – Find Your Destination Now">
+
+  <!-- ── Compass rose (subtle background) ── -->
+  <g transform="translate(24,26)">
+    <!-- Ring -->
+    <circle r="12" fill="none" stroke="#C07840" stroke-width="0.6" opacity="0.35"/>
+    <!-- N -->
+    <polygon points="0,-12 2.5,-5 0,-7 -2.5,-5" fill="#C07840" opacity="0.75"/>
+    <!-- S -->
+    <polygon points="0,12 2.5,5 0,7 -2.5,5" fill="#C07840" opacity="0.45"/>
+    <!-- E -->
+    <polygon points="12,0 5,2.5 7,0 5,-2.5" fill="#C07840" opacity="0.75"/>
+    <!-- W -->
+    <polygon points="-12,0 -5,2.5 -7,0 -5,-2.5" fill="#C07840" opacity="0.45"/>
+    <!-- Center dot -->
+    <circle r="2" fill="#C07840" opacity="0.6"/>
+  </g>
+
+  <!-- ── Airplane (angled 30° up-right) ── -->
+  <g transform="translate(24,26) rotate(-30)">
+    <!-- Fuselage -->
+    <rect x="-14" y="-3.5" width="30" height="7" rx="3.5" fill="#C07840"/>
+    <!-- Nose -->
+    <polygon points="16,-3 22,0 16,3" fill="#C07840"/>
+    <!-- Main wings -->
+    <polygon points="-4,-3.5 2,-14 7,-12 3,-3.5" fill="#C07840"/>
+    <polygon points="-4,3.5 2,14 7,12 3,3.5" fill="#C07840"/>
+    <!-- Tail fin -->
+    <polygon points="-14,-3.5 -18,-9 -11,-4" fill="#C07840"/>
+    <!-- Horizontal stabilizer -->
+    <polygon points="-12,-3.5 -15,-7 -9,-4" fill="#C07840" opacity="0.85"/>
+    <polygon points="-12,3.5 -15,7 -9,4" fill="#C07840" opacity="0.85"/>
+  </g>
+
+  <!-- ── FLYGO logotype ── -->
+  <text
+    x="52" y="23"
+    font-family="'Inter','Arial Black',Arial,sans-serif"
+    font-weight="900"
+    font-size="22"
+    fill="#C07840"
+    letter-spacing="-0.5">FLYGO</text>
+
+  <!-- ── Tagline ── -->
+  <text
+    x="53" y="38"
+    font-family="'Inter',Arial,sans-serif"
+    font-weight="400"
+    font-size="8.5"
+    fill="#7a9ab8"
+    letter-spacing="1.8">FIND YOUR DESTINATION NOW</text>
+
+</svg>

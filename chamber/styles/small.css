@@ -727,6 +727,16 @@ body.dark .btn-action--outline { color: var(--accent); border-color: var(--accen
 body.dark .visit-banner { background: rgba(200,149,42,.12); }
 .visit-banner.visible { display: block; }
 
+/* grid-area assignments — no inline styles needed in JS */
+.item1 { grid-area: item1; }
+.item2 { grid-area: item2; }
+.item3 { grid-area: item3; }
+.item4 { grid-area: item4; }
+.item5 { grid-area: item5; }
+.item6 { grid-area: item6; }
+.item7 { grid-area: item7; }
+.item8 { grid-area: item8; }
+
 .discover-grid {
   display: grid;
   grid-template-columns: 1fr;

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Expert travel tips to help you fly cheaper, pack smarter, and save money on every trip. Practical advice from experienced budget travelers.">
+  <meta name="author" content="Willian Pechel">
+
+  <meta property="og:title" content="Travel Tips to Save Money | FlyGo">
+  <meta property="og:description" content="Practical tips on booking cheap flights, packing light, saving on accommodation, and stretching your travel budget further.">
+  <meta property="og:image" content="https://wpechel-hub.github.io/wdd231/final/images/og-cover.webp">
+  <meta property="og:url" content="https://wpechel-hub.github.io/wdd231/final/tips.html">
+
+  <title>Travel Tips to Save Money | FlyGo</title>
+
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/tips.js" type="module"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="FlyGo home">
+        <img src="images/logo.svg" alt="FlyGo – Find Your Destination Now" class="logo-img" width="160" height="44">
+      </a>
+
+      <nav id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="tips.html" class="active">Travel Tips</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="dark-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+        <button id="menu-btn" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-banner" role="banner">
+    <div class="page-banner-inner">
+      <h1>Travel Tips</h1>
+      <p>Practical advice to help you fly cheaper, pack smarter, and travel better.</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <div class="content-wrap">
+
+      <nav class="tip-filters" aria-label="Filter tips by category">
+        <button class="tip-filter-btn active" data-category="all" type="button">All Tips</button>
+        <button class="tip-filter-btn" data-category="booking" type="button">Booking</button>
+        <button class="tip-filter-btn" data-category="packing" type="button">Packing</button>
+        <button class="tip-filter-btn" data-category="money" type="button">Money</button>
+        <button class="tip-filter-btn" data-category="accommodation" type="button">Accommodation</button>
+      </nav>
+
+      <div class="tips-grid" id="tips-grid" aria-live="polite" aria-label="Travel tips"></div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-mark" aria-hidden="true">F</div>
+        <div class="footer-brand-text">
+          <p class="footer-name">FlyGo</p>
+          <p class="footer-tag">Budget Travel Search</p>
+        </div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="deals.html">Deals</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+        <a href="attributions.html">Attributions</a>
+      </nav>
+
+      <div class="footer-meta">
+        <p>WDD231 Final Project</p>
+        <p>Willian Pechel</p>
+        <p>&copy; <span id="copy-year"></span> FlyGo Budget Travel</p>
+        <p class="last-mod">Last Modified: <span id="last-mod"></span></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

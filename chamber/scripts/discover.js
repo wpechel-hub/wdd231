@@ -30,8 +30,7 @@ const grid = document.getElementById('discover-grid');
 if (grid) {
   discoverItems.forEach(item => {
     const card = document.createElement('article');
-    card.className = 'discover-card';
-    card.style.gridArea = item.id;
+    card.className = `discover-card ${item.id}`;
     card.innerHTML = `
       <figure class="dc-figure">
         <img src="${item.image}" alt="${item.imageAlt}" loading="lazy" width="300" height="200">

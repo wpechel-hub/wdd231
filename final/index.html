@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FlyGo helps you find cheap flights from Salt Lake City to destinations worldwide. Search, compare, and save on every trip.">
+  <meta name="author" content="Willian Pechel">
+
+  <meta property="og:title" content="FlyGo – Budget Travel Search">
+  <meta property="og:description" content="Find cheap flights from Salt Lake City to hundreds of destinations worldwide.">
+  <meta property="og:image" content="https://wpechel-hub.github.io/wdd231/final/images/og-cover.webp">
+  <meta property="og:url" content="https://wpechel-hub.github.io/wdd231/final/index.html">
+
+  <title>FlyGo – Budget Travel Search</title>
+
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/index.js" type="module"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="FlyGo home">
+        <img src="images/logo.svg" alt="FlyGo – Find Your Destination Now" class="logo-img" width="160" height="44">
+      </a>
+
+      <nav id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="tips.html">Travel Tips</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="dark-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+        <button id="menu-btn" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Search for cheap flights">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Budget Travel Made Simple</p>
+      <h1 class="hero-title">Find Cheap Flights to Anywhere</h1>
+      <p class="hero-sub">Search routes worldwide and discover your next adventure at the best price.</p>
+
+      <div class="search-card" role="search">
+        <div class="search-trip-tabs" role="group" aria-label="Trip type">
+          <button class="trip-tab active" data-trip="roundtrip" type="button">Round Trip</button>
+          <button class="trip-tab" data-trip="oneway" type="button">One Way</button>
+        </div>
+
+        <form id="search-form" action="thankyou.html" method="get" aria-label="Flight search">
+          <div class="search-row-1">
+            <div class="sf">
+              <label for="sf-from">From</label>
+              <input type="text" id="sf-from" name="from" list="origin-list" placeholder="Salt Lake City (SLC)" autocomplete="off" title="Departure city" value="Salt Lake City">
+              <datalist id="origin-list">
+                <option value="Salt Lake City (SLC)">
+                <option value="New York (JFK)">
+                <option value="Los Angeles (LAX)">
+                <option value="Chicago (ORD)">
+                <option value="Miami (MIA)">
+              </datalist>
+            </div>
+            <button class="swap-btn" id="swap-btn" type="button" aria-label="Swap origin and destination">⇄</button>
+            <div class="sf">
+              <label for="sf-to">To</label>
+              <input type="text" id="sf-to" name="destination" list="dest-list" placeholder="Where to?" autocomplete="off" title="Destination city or country">
+              <datalist id="dest-list"></datalist>
+            </div>
+          </div>
+
+          <div class="search-row-2">
+            <div class="sf">
+              <label for="sf-depart">Depart</label>
+              <input type="date" id="sf-depart" name="depart" title="Departure date">
+            </div>
+            <div class="sf" id="return-field">
+              <label for="sf-return">Return</label>
+              <input type="date" id="sf-return" name="return" title="Return date">
+            </div>
+            <div class="sf">
+              <label for="sf-pax">Travelers</label>
+              <select id="sf-pax" name="passengers" title="Number of passengers">
+                <option value="1">1 passenger</option>
+                <option value="2">2 passengers</option>
+                <option value="3">3 passengers</option>
+                <option value="4">4+ passengers</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-search">&#128269; Search Flights</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+    <div class="content-wrap">
+
+      <section id="search-results" hidden aria-live="polite" aria-label="Search results">
+        <h2 class="section-heading">Search Results</h2>
+        <p id="results-count" class="results-count"></p>
+        <div class="flights-grid" id="results-grid"></div>
+      </section>
+
+      <section aria-labelledby="featured-heading">
+        <h2 class="section-heading" id="featured-heading">Top Deals Right Now</h2>
+        <div class="dest-grid" id="featured-grid"></div>
+      </section>
+
+      <section class="section-gap" aria-labelledby="why-heading">
+        <h2 class="section-heading" id="why-heading">Why FlyGo?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">💰</div>
+            <h3 class="feature-title">Best Price Guarantee</h3>
+            <p class="feature-text">We scan thousands of routes and airlines to surface the cheapest fares available — no hidden fees, ever.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">⚡</div>
+            <h3 class="feature-title">Instant Results</h3>
+            <p class="feature-text">Our search engine returns filtered, sorted results in under a second — so you spend less time searching and more time traveling.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🌍</div>
+            <h3 class="feature-title">Global Coverage</h3>
+            <p class="feature-text">From domestic weekenders to long-haul international adventures, we cover routes to every major destination worldwide.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🔔</div>
+            <h3 class="feature-title">Price Alerts</h3>
+            <p class="feature-text">Your recent searches are saved locally — revisit and immediately see if your target route has dropped in price since your last visit.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Flight Detail Modal -->
+  <dialog id="flight-modal" class="flight-modal" aria-label="Flight details">
+    <div class="modal-close-bar">
+      <button id="modal-close" class="modal-x" aria-label="Close dialog">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </dialog>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-mark" aria-hidden="true">F</div>
+        <div class="footer-brand-text">
+          <p class="footer-name">FlyGo</p>
+          <p class="footer-tag">Budget Travel Search</p>
+        </div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="deals.html">Deals</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+        <a href="attributions.html">Attributions</a>
+      </nav>
+
+      <div class="footer-meta">
+        <p>WDD231 Final Project</p>
+        <p>Willian Pechel</p>
+        <p>&copy; <span id="copy-year"></span> FlyGo Budget Travel</p>
+        <p class="last-mod">Last Modified: <span id="last-mod"></span></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
