@@ -485,10 +485,12 @@ body.dark .form-field textarea:focus {
 .membership-card:nth-child(3) { animation-delay: .40s; }
 .membership-card:nth-child(4) { animation-delay: .55s; }
 
-.membership-card--np     { --mc-color: #2a9d8f; }
-.membership-card--bronze { --mc-color: #b87333; }
-.membership-card--silver { --mc-color: #6b7280; }
-.membership-card--gold   { --mc-color: var(--gold); }
+/* --mc-color: accent for borders (decorative).
+   --mc-dark:  accessible dark shade (≥4.5:1 on white) for text and buttons. */
+.membership-card--np     { --mc-color: #2a9d8f; --mc-dark: #1a7a6e; }
+.membership-card--bronze { --mc-color: #b87333; --mc-dark: #8a4e1a; }
+.membership-card--silver { --mc-color: #6b7280; --mc-dark: #4b5563; }
+.membership-card--gold   { --mc-color: #C8952A; --mc-dark: #7c5a0f; }
 
 .mc-header {
   padding: 1rem 1rem .85rem;
@@ -509,9 +511,10 @@ body.dark .form-field textarea:focus {
   font-family: 'Roboto Slab', serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--mc-color);
+  color: var(--mc-dark);
   margin: .2rem 0;
 }
+body.dark .mc-price { color: var(--mc-color); }
 
 .mc-subtitle {
   font-size: .75rem;
@@ -521,7 +524,7 @@ body.dark .form-field textarea:focus {
 
 .mc-learn-link {
   display: block;
-  background: var(--mc-color);
+  background: var(--mc-dark);
   color: var(--white);
   text-align: center;
   padding: .55rem 1rem;
@@ -529,7 +532,7 @@ body.dark .form-field textarea:focus {
   font-weight: 600;
   transition: filter .2s;
 }
-.mc-learn-link:hover { filter: brightness(1.12); }
+.mc-learn-link:hover { filter: brightness(1.15); }
 
 /* Modals */
 
@@ -561,15 +564,16 @@ body.dark .form-field textarea:focus {
   font-family: 'Roboto Slab', serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--mh-color);
+  color: var(--mh-dark);
   margin-bottom: .2rem;
 }
+body.dark .modal-header h3 { color: var(--mh-color); }
 .modal-header p { font-size: .82rem; color: var(--muted); }
 
-.modal-header--np     { --mh-color: #2a9d8f; }
-.modal-header--bronze { --mh-color: #b87333; }
-.modal-header--silver { --mh-color: #6b7280; }
-.modal-header--gold   { --mh-color: var(--gold); }
+.modal-header--np     { --mh-color: #2a9d8f; --mh-dark: #1a7a6e; }
+.modal-header--bronze { --mh-color: #b87333; --mh-dark: #8a4e1a; }
+.modal-header--silver { --mh-color: #6b7280; --mh-dark: #4b5563; }
+.modal-header--gold   { --mh-color: #C8952A; --mh-dark: #7c5a0f; }
 
 .modal-benefits {
   list-style: none;
