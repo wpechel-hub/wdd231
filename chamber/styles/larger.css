@@ -13,6 +13,48 @@
   .footer-meta { grid-column: 1 / -1; }
 }
 
+/* JOIN PAGE – medium screens */
+@media (min-width: 641px) and (max-width: 960px) {
+  .join-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-field--full,
+  .form-submit-row {
+    grid-column: 1 / -1;
+  }
+  .membership-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* JOIN PAGE – large screens */
+@media (min-width: 961px) {
+  .join-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .join-form-section {
+    flex: 1;
+    min-width: 0;
+  }
+  .join-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-field--full,
+  .form-submit-row {
+    grid-column: 1 / -1;
+  }
+  .btn-submit { width: auto; }
+  .membership-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+  }
+  .membership-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .hamburger { display: flex; }
   .header-actions { margin-left: auto; }

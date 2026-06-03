@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the Salt Lake City Chamber of Commerce – apply for membership and connect with the local business community.">
+  <meta name="author" content="Willian Pechel">
+
+  <meta property="og:title" content="Join | Salt Lake City Chamber of Commerce">
+  <meta property="og:description" content="Apply for chamber membership and connect with Salt Lake City's business community.">
+  <meta property="og:image" content="https://wpechel-hub.github.io/wdd231/chamber/images/saltpalace.webp">
+  <meta property="og:url" content="https://wpechel-hub.github.io/wdd231/chamber/join.html">
+
+  <title>Join | Salt Lake City Chamber of Commerce</title>
+
+  <link rel="icon" href="images/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="logo" aria-label="Salt Lake City Chamber of Commerce home">
+        <div class="logo-img-wrap">
+          <img src="images/chamber_commerce.png" alt="Salt Lake City Chamber of Commerce" class="logo-img">
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">Salt Lake City</span>
+          <span class="logo-sub">Chamber of Commerce</span>
+        </div>
+      </a>
+
+      <nav id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html" class="active">Join</a></li>
+          <li><a href="discover.html">Discover</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="dark-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+        <button id="menu-btn" class="icon-btn hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="content-wrap">
+
+      <div class="page-intro">
+        <h1 class="page-title">Join the Chamber</h1>
+        <p class="page-subtitle">Become part of Salt Lake City's premier business network. Complete the application below to get started.</p>
+      </div>
+
+      <div class="join-layout">
+
+        <!-- Application Form -->
+        <section class="join-form-section" aria-labelledby="form-heading">
+          <h2 id="form-heading" class="section-heading">Membership Application</h2>
+
+          <form class="join-form" action="thankyou.html" method="get">
+
+            <label class="form-field">
+              <span class="field-label">First Name <span class="req" aria-hidden="true">*</span></span>
+              <input type="text" name="first-name" title="Applicant's first name" autocomplete="given-name" required placeholder="Jane">
+            </label>
+
+            <label class="form-field">
+              <span class="field-label">Last Name <span class="req" aria-hidden="true">*</span></span>
+              <input type="text" name="last-name" title="Applicant's last name" autocomplete="family-name" required placeholder="Smith">
+            </label>
+
+            <label class="form-field">
+              <span class="field-label">Organizational Title</span>
+              <input
+                type="text"
+                name="org-title"
+                title="Applicant's title within their organization"
+                autocomplete="organization-title"
+                pattern="[A-Za-z\-\s]{7,}"
+                placeholder="Executive Director"
+              >
+              <span class="field-hint">Letters, hyphens, and spaces only · 7 characters minimum</span>
+            </label>
+
+            <label class="form-field">
+              <span class="field-label">Email Address <span class="req" aria-hidden="true">*</span></span>
+              <input type="email" name="email" title="Applicant's email address" autocomplete="email" required placeholder="jane.smith@example.com">
+            </label>
+
+            <label class="form-field">
+              <span class="field-label">Mobile Phone <span class="req" aria-hidden="true">*</span></span>
+              <input type="tel" name="phone" title="Applicant's mobile phone number" autocomplete="tel" required placeholder="(801) 555-0100">
+            </label>
+
+            <label class="form-field">
+              <span class="field-label">Business / Organization Name <span class="req" aria-hidden="true">*</span></span>
+              <input type="text" name="org-name" title="Business or organization name" autocomplete="organization" required placeholder="Acme Corporation">
+            </label>
+
+            <label class="form-field form-field--full">
+              <span class="field-label">Membership Level</span>
+              <select name="membership-level" title="Desired membership level">
+                <option value="" disabled selected>Select a level…</option>
+                <option value="np">NP Membership – Non-profit (No fee)</option>
+                <option value="bronze">Bronze Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="gold">Gold Membership</option>
+              </select>
+            </label>
+
+            <label class="form-field form-field--full">
+              <span class="field-label">Business / Organization Description</span>
+              <textarea name="description" title="Brief description of your business or organization" rows="4" placeholder="Tell us about your business or organization…"></textarea>
+            </label>
+
+            <input type="hidden" name="timestamp" id="timestamp">
+
+            <div class="form-submit-row">
+              <input type="submit" class="btn-submit" value="Submit Application">
+            </div>
+
+          </form>
+        </section>
+
+        <!-- Membership Level Cards -->
+        <aside class="membership-sidebar" aria-label="Membership level options">
+          <h2 class="section-heading">Membership Levels</h2>
+          <div class="membership-cards">
+
+            <div class="membership-card membership-card--np">
+              <div class="mc-header">
+                <h3 class="mc-title">NP Membership</h3>
+                <p class="mc-price">No Fee</p>
+                <p class="mc-subtitle">For Non-Profit Organizations</p>
+              </div>
+              <a href="#" class="mc-learn-link" data-modal="modal-np" aria-haspopup="dialog">Learn More</a>
+            </div>
+
+            <div class="membership-card membership-card--bronze">
+              <div class="mc-header">
+                <h3 class="mc-title">Bronze Membership</h3>
+                <p class="mc-price">$200 / year</p>
+                <p class="mc-subtitle">For Growing Businesses</p>
+              </div>
+              <a href="#" class="mc-learn-link" data-modal="modal-bronze" aria-haspopup="dialog">Learn More</a>
+            </div>
+
+            <div class="membership-card membership-card--silver">
+              <div class="mc-header">
+                <h3 class="mc-title">Silver Membership</h3>
+                <p class="mc-price">$500 / year</p>
+                <p class="mc-subtitle">For Established Businesses</p>
+              </div>
+              <a href="#" class="mc-learn-link" data-modal="modal-silver" aria-haspopup="dialog">Learn More</a>
+            </div>
+
+            <div class="membership-card membership-card--gold">
+              <div class="mc-header">
+                <h3 class="mc-title">Gold Membership</h3>
+                <p class="mc-price">$1,000 / year</p>
+                <p class="mc-subtitle">For Industry Leaders</p>
+              </div>
+              <a href="#" class="mc-learn-link" data-modal="modal-gold" aria-haspopup="dialog">Learn More</a>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Membership Level Modals -->
+  <dialog id="modal-np" class="membership-modal" aria-labelledby="np-modal-title">
+    <div class="modal-content">
+      <div class="modal-header modal-header--np">
+        <h3 id="np-modal-title">NP Membership</h3>
+        <p>Supporting our community's non-profit organizations</p>
+      </div>
+      <ul class="modal-benefits">
+        <li>Chamber business directory listing</li>
+        <li>Access to community networking events</li>
+        <li>Monthly newsletter subscription</li>
+        <li>Community resource referrals</li>
+        <li>Volunteer event coordination support</li>
+      </ul>
+      <button class="modal-close" aria-label="Close NP Membership dialog">Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="modal-bronze" class="membership-modal" aria-labelledby="bronze-modal-title">
+    <div class="modal-content">
+      <div class="modal-header modal-header--bronze">
+        <h3 id="bronze-modal-title">Bronze Membership</h3>
+        <p>A strong start for growing businesses</p>
+      </div>
+      <ul class="modal-benefits">
+        <li>Chamber business directory listing</li>
+        <li>2 networking events per year</li>
+        <li>Monthly newsletter subscription</li>
+        <li>Annual business spotlight feature</li>
+        <li>Basic digital advertising on chamber website</li>
+        <li>Access to member-only online resources</li>
+      </ul>
+      <button class="modal-close" aria-label="Close Bronze Membership dialog">Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="modal-silver" class="membership-modal" aria-labelledby="silver-modal-title">
+    <div class="modal-content">
+      <div class="modal-header modal-header--silver">
+        <h3 id="silver-modal-title">Silver Membership</h3>
+        <p>Expanded visibility for established businesses</p>
+      </div>
+      <ul class="modal-benefits">
+        <li>All Bronze Membership benefits</li>
+        <li>5 networking events per year</li>
+        <li>Enhanced directory listing with logo</li>
+        <li>Monthly spotlight consideration on homepage</li>
+        <li>10% discount on all chamber events</li>
+        <li>Professional training workshops (2 per year)</li>
+        <li>One-on-one business counseling (1 session/year)</li>
+      </ul>
+      <button class="modal-close" aria-label="Close Silver Membership dialog">Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="modal-gold" class="membership-modal" aria-labelledby="gold-modal-title">
+    <div class="modal-content">
+      <div class="modal-header modal-header--gold">
+        <h3 id="gold-modal-title">Gold Membership</h3>
+        <p>Maximum exposure for industry leaders</p>
+      </div>
+      <ul class="modal-benefits">
+        <li>All Silver Membership benefits</li>
+        <li>Unlimited networking events</li>
+        <li>Premium featured directory placement</li>
+        <li>Homepage spotlight rotation (quarterly)</li>
+        <li>20% discount on all chamber events</li>
+        <li>Unlimited professional training workshops</li>
+        <li>Dedicated business counseling (4 sessions/year)</li>
+        <li>Co-branding on chamber marketing materials</li>
+        <li>Priority placement in chamber communications</li>
+      </ul>
+      <button class="modal-close" aria-label="Close Gold Membership dialog">Close</button>
+    </div>
+  </dialog>
+
+  <footer>
+    <div class="footer-inner">
+
+      <address class="footer-address">
+        <img src="images/chamber_commerce.png" alt="Salt Lake City Chamber of Commerce seal" class="footer-logo">
+        <div class="footer-address-text">
+          <p class="footer-org">Salt Lake City Chamber of Commerce</p>
+          <p>3580 S Stallion St, Salt Lake City, UT 84121</p>
+          <p><a href="mailto:info@slcchamber.com">info@slcchamber.com</a></p>
+          <p>(801) 555-2300</p>
+        </div>
+      </address>
+
+      <nav class="footer-social" aria-label="Social media links">
+        <a href="#" aria-label="YouTube" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zm-14 9.4V8.4l6.3 3.6-6.3 3.6z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter / X" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.2 2h3.3l-7.2 8.2 8.5 11.2h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.4 2h6.8l4.7 6.2L18.2 2zm-1.2 17.4h1.8L7.2 3.8H5.3l11.7 15.6z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19v.14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+          </svg>
+        </a>
+      </nav>
+
+      <div class="footer-meta">
+        <p>WDD231 Class Project</p>
+        <p>Willian Pechel</p>
+        <p>&copy; <span id="copy-year"></span> Salt Lake City Chamber of Commerce</p>
+        <p class="last-mod">Last Modified: <span id="last-mod"></span></p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
