@@ -599,6 +599,13 @@ body.light #primary-nav a.active { color: var(--white); }
 }
 .btn-book:hover { background: var(--copper-lt); }
 
+.btn-book--loading {
+  background: var(--surface-2);
+  color: var(--muted);
+  cursor: wait;
+  opacity: .85;
+}
+
 /* ── DEALS FILTERS ── */
 
 .filters-bar {

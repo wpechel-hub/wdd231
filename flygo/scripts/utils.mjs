@@ -1,3 +1,20 @@
+// Opens Google Flights in a new tab with the route pre-filled,
+// with a brief visual loading state on the button.
+export function handleBooking(btn, flight) {
+  const url = `https://www.google.com/travel/flights?q=flights+from+${encodeURIComponent(flight.originCity)}+to+${encodeURIComponent(flight.destinationCity)}`;
+
+  btn.textContent = 'Opening Google Flights…';
+  btn.disabled    = true;
+  btn.classList.add('btn-book--loading');
+
+  setTimeout(() => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    btn.textContent = 'Book This Flight';
+    btn.disabled    = false;
+    btn.classList.remove('btn-book--loading');
+  }, 700);
+}
+
 export function formatPrice(price) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(price);
 }

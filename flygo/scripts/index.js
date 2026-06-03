@@ -1,4 +1,4 @@
-import { buildCard, buildDestCard, buildModal } from './utils.mjs';
+import { buildCard, buildDestCard, buildModal, handleBooking } from './utils.mjs';
 
 let allFlights = [];
 
@@ -10,8 +10,8 @@ const modalClose = document.getElementById('modal-close');
 function openModal(flight) {
   modalBody.innerHTML = buildModal(flight);
   modal.showModal();
-  modal.querySelector('.btn-book').addEventListener('click', () => {
-    alert(`Booking for ${flight.destinationCity} is not available in this demo.`);
+  modal.querySelector('.btn-book').addEventListener('click', function () {
+    handleBooking(this, flight);
   });
 }
 if (modalClose) modalClose.addEventListener('click', () => modal.close());
