@@ -55,6 +55,45 @@
   }
 }
 
+/* DISCOVER PAGE – hover effect (medium and large only) */
+@media (min-width: 641px) {
+  .dc-figure { overflow: hidden; }
+  .dc-figure img {
+    height: auto;
+    aspect-ratio: 3 / 2;
+    transition: transform .4s ease, filter .4s ease;
+  }
+  .discover-card:hover .dc-figure img {
+    transform: scale(1.07);
+    filter: brightness(1.1) saturate(1.2);
+  }
+}
+
+/* DISCOVER PAGE – medium (641–1024px) magazine layout */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .discover-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "item1 item1 item2"
+      "item3 item4 item2"
+      "item5 item4 item6"
+      "item7 item8 item8";
+  }
+  .discover-card { height: 100%; }
+}
+
+/* DISCOVER PAGE – large (1025px+) bento layout */
+@media (min-width: 1025px) {
+  .discover-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "item1 item2 item3 item4"
+      "item5 item6 item3 item4"
+      "item5 item6 item7 item8";
+  }
+  .discover-card { height: 100%; }
+}
+
 @media (max-width: 640px) {
   .hamburger { display: flex; }
   .header-actions { margin-left: auto; }
