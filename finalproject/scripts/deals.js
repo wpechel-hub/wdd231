@@ -58,7 +58,7 @@ function applyFilters() {
   let results = allFlights.filter(f => {
     const matchCat   = category === 'all' || f.category === category;
     const matchPrice = f.price <= maxPrice;
-    const matchStops = stopsVal === 'any' || String(f.stops) === stopsVal;
+    const matchStops = stopsVal === 'any' || (stopsVal === '2' ? f.stops >= 2 : String(f.stops) === stopsVal);
     return matchCat && matchPrice && matchStops;
   });
 

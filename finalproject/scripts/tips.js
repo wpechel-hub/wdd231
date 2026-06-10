@@ -96,7 +96,11 @@ function init() {
   const saved = localStorage.getItem('fg-tips-category');
   if (saved) {
     const btn = document.querySelector(`[data-category="${saved}"]`);
-    if (btn) { btn.classList.add('active'); renderTips(saved); }
+    if (btn) {
+      document.querySelectorAll('.tip-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderTips(saved);
+    }
   }
 
   document.querySelectorAll('.tip-filter-btn').forEach(btn => {
